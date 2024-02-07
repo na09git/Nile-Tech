@@ -120,12 +120,9 @@ app.use('/home', require('./routes/home'))
 app.use('/homeadmin', require('./routes/homeadmin'))
 app.use('/contact', require('./routes/contact'));
 app.use('/ceo', require('./routes/ceo'));
-app.use('/vission-and-mission', require('./routes/vission'));
 app.use('/privacy', require('./routes/privacy'));
 app.use('/terms', require('./routes/terms'));
-
-
-
+app.use('/about', require('./routes/about'));
 
 
 const PORT = process.env.PORT || 3000

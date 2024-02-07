@@ -76,21 +76,6 @@ router.get('/homeworker', ensureAuth, ensureAdminOrWorker, async (req, res) => {
 })
 
 
-// @desc    stories
-// @route   GET /stories
-router.get('/stories', ensureAuth, async (req, res) => {
-  try {
-    const story = await Story.find({ user: req.user.id }).lean()
-    res.render('stories', {
-      name: req.user.firstName,
-      story,
-    })
-  } catch (err) {
-    console.error(err)
-    res.render('error/500')
-  }
-})
-
 // @desc    News
 // @route   GET /news
 router.get('/newspage', ensureAuth, async (req, res) => {
@@ -105,60 +90,6 @@ router.get('/newspage', ensureAuth, async (req, res) => {
     res.render('error/500')
   }
 })
-
-
-// @desc    Student
-// @route   GET /student
-router.get('/students', ensureAuth, ensureAdmin, async (req, res) => {
-  try {
-    const student = await Student.find({ user: req.user.id }).lean()
-    res.render('students', {
-      name: req.user.firstName,
-      student,
-    })
-    console.log("Dear Admin, You can see all Student here in this Page !")
-  } catch (err) {
-    console.error(err)
-    res.render('error/500')
-  }
-})
-
-
-// @desc    Worker
-// @route   GET /worker
-router.get('/workers', ensureAuth, ensureAdmin, async (req, res) => {
-  try {
-    const worker = await Worker.find({ user: req.user.id }).lean()
-    res.render('workers', {
-      name: req.user.firstName,
-      worker,
-    })
-    console.log("Dear Admin, You can see all Worker here in this Page !")
-  } catch (err) {
-    console.error(err)
-    res.render('error/500')
-  }
-})
-
-
-// @desc    Problem
-// @route   GET /problem
-router.get('/problems', ensureAuth, ensureAdminOrWorker, async (req, res) => {
-  try {
-    const problem = await Problem.find({ user: req.user.id }).lean()
-    res.render('problems', { title: "Problem Page" }, {
-      name: req.user.firstName,
-      problem,
-    })
-    console.log("Dear Admin, You can see all Student Problem here in this Page !")
-  } catch (err) {
-    console.error(err)
-    res.render('error/500')
-  }
-})
-
-
-
 
 
 module.exports = router
