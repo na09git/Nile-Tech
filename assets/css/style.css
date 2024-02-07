@@ -192,6 +192,11 @@ h6 {
   text-transform: uppercase;
 }
 
+#header .logo span {
+  color: #ff2200;
+
+}
+
 #header .logo a {
   color: #fff;
 }
