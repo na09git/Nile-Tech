@@ -901,7 +901,10 @@
 
                 <div class="col-lg-6 mt-5 mt-lg-0" data-aos="fade-left" data-aos-delay="100">
 
-                    <form action="forms/contact.php" method="post" role="form" class="php-email-form">
+                    <form action="https://api.web3forms.com/submit" method="POST">
+
+                        <input type="hidden" name="access_key" value="ed4fd839-7805-4ea7-bd53-e64e2c2cf1f1">
+
                         <div class="row">
                             <div class="col-md-6 form-group">
                                 <input type="text" name="name" class="form-control" id="name" placeholder="Your Name"
@@ -936,3 +939,7 @@
     </section><!-- End Contact Section -->
 
 </main><!-- End #main -->
+
+{{!-- contact form web3 form script--}}
+<script src="https://web3forms.com/client/script.js" async defer></script>
+{{!-- contact form web3 form script--}}
