@@ -1,0 +1,142 @@
+<main id="main">
+
+    <!-- ====== Breadcrumbs ====== -->
+    <div class="breadcrumbs">
+        <div class="page-header d-flex align-items-center" style="background-image: url('');">
+            <div class="container position-relative">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-lg-6 text-center">
+                        <h2>News</h2>
+                        <p>You can get new update about our school here .</p>
+                    </div>
+                </div>
+                <div class="col-md-3  text-center " style="padding-top: 42px; justify-content-center">
+                    <a href="/newspage" class="btn bg-primary text-white"> News
+                        dashboard</a>
+                </div>
+
+            </div>
+        </div>
+        <nav>
+            <div class="container">
+                <ol>
+                    <li><a href="/">Home</a></li>
+                    <li>News</li>
+                    <div class="col-md-6 w-100">
+
+                        {{!-- search --}}
+                        <form id="search-site" action='/news/search/:query' method='get' class="row mb-4">
+                            <div class="col input-group" style="padding-top: 30px;">
+                                <span class="input-group-text"><i class="fas fa-search fa-lg"></i></span>
+                                <div class="form-floating">
+                                    <input id="search" type="search" name='query' class="form-control"
+                                        placeholder="Search by title">
+                                    <label for="search">Search</label>
+                                </div>
+                                <button type="submit" class="btn btn-primary">Search</button>
+                            </div>
+                            {{!-- Broadcast --}}
+                            <div class="col-md-3" style="padding-top: 42px;">
+                                <a href="/news/create" class="btn bg-primary text-white">Broadcast News</a>
+                            </div>
+                            {{!-- Broadcast --}}
+                        </form>
+                        {{!-- search --}}
+
+                    </div>
+                </ol>
+            </div>
+        </nav>
+    </div>
+    <!--- End Breadcrumbs --->
+
+
+    <!-- ====== Blog Section ====== -->
+    <section id="blog" class="blog">
+        <div class="container" data-aos="fade-up">
+
+            <div class="row gy-4 posts-list">
+
+                {{#each news as |row index| }}
+                <div class="col-xl-12 col-md-6">
+
+                    <article>
+                        <div class="text-center" style="padding-bottom: 30px;">
+                            <p class="post-category">{{title}}</p>
+                        </div>
+
+                        <div class="container" style="height: 300px;">
+                            <div class="row">
+                                <div class="col-md-6" style="height: 300px;">
+                                    <div class="card mb-3" style="height: 300px; border: 0;">
+                                        {{#if imageBase64}}
+                                        <img src='data:{{contentType}};base64,{{imageBase64}}'
+                                            class="news-image img-fluid" style="min-height: 200px;">
+
+                                        {{else}}
+                                        <img src="images/no_image.png" class="img-thumbnail img-fluid"
+                                            style="min-height: 200px;">
+                                        {{/if}}
+                                    </div>
+                                </div>
+
+                                <div class="col-md-6" style="height: 300px;">
+                                    <div class="card-body title">
+                                        <a href="/news/{{_id}}">
+                                            <p class="card-text">{{stripTags (truncate row.body 200)}}</p>
+                                        </a>
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+
+                        <div class="d-flex align-items-center">
+
+                            <a href="mailto: niletech1513@gmail.com"> <img src="{{user.image}}"
+                                    alt="Story image of{{user.firstName}}"
+                                    class="img-fluid post-author-img flex-shrink-0">
+                            </a>
+                            <div class="post-meta">
+
+                                <p class="post-date">
+                                    <time datetime="2022-01-01">
+                                        <div class="card-footer text-center" style="padding-top: 10px;">
+                                            <span style="padding-left: 40px;"> {{formatDate news.createdAt 'MMMM Do
+                                                YYYY, h:mm:ss a'}}</span>
+                                        </div>
+                                    </time>
+                                </p>
+                                <div class="card-footer text-center" style="padding-bottom: 30px;">
+                                    <a href="/news/{{_id}}" class="btn btn-secondary">Read More</a>
+                                </div>
+                            </div>
+                        </div>
+
+                    </article>
+                </div>
+                {{else}}
+                <p class="col-12 text-center">No News to display</p>
+                {{/each}}
+                <!-- End post list item -->
+
+
+            </div>
+
+            <!-- End blog posts list -->
+
+            <div class="blog-pagination">
+                <ul class="justify-content-center">
+                    <li><a href="#">1</a></li>
+                    <li class="active"><a href="#">2</a></li>
+                    <li><a href="#">3</a></li>
+                </ul>
+            </div><!-- End blog pagination -->
+
+        </div>
+    </section><!-- End Blog Section -->
+
+</main>
+<!-- End #main -->
