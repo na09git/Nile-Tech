@@ -32,6 +32,7 @@ router.get('/', ensureAuth, async (req, res) => {
     res.render('error/500')
   }
 })
+
 // @desc    home
 // @route   GET /home
 router.get('/home', ensureAuth, async (req, res) => {
