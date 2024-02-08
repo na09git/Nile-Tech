@@ -25,7 +25,7 @@ router.get('/login', ensureGuest, (req, res) => {
 // @route   GET /home
 router.get('/', ensureAuth, async (req, res) => {
   try {
-    res.render('home')
+    res.render('home/index')
     console.log("You are in / Page !");
   } catch (err) {
     console.error(err)
@@ -37,7 +37,7 @@ router.get('/', ensureAuth, async (req, res) => {
 // @route   GET /home
 router.get('/home', ensureAuth, async (req, res) => {
   try {
-    res.render('home')
+    res.render('home/index')
     console.log("You are in /home Page !");
   } catch (err) {
     console.error(err)
