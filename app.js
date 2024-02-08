@@ -119,10 +119,11 @@ app.use('/news', require('./routes/news'));
 app.use('/home', require('./routes/home'))
 app.use('/homeadmin', require('./routes/homeadmin'))
 app.use('/contact', require('./routes/contact'));
-app.use('/ceo', require('./routes/ceo'));
 app.use('/privacy', require('./routes/privacy'));
 app.use('/terms', require('./routes/terms'));
 app.use('/about', require('./routes/about'));
+app.use('/service', require('./routes/service'));
+app.use('/portfolio', require('./routes/portfolio'));
 
 
 const PORT = process.env.PORT || 3000
