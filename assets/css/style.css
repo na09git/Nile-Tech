@@ -1658,13 +1658,7 @@ section {
 .contact .php-email-form .loading:before {
   content: "";
   display: inline-block;
-  border-radius: 50%;
-  width: 24px;
-  height: 24px;
-  margin: 0 10px -6px 0;
-  border: 3px solid #18d26e;
-  border-top-color: #eee;
-  animation: animate-loading 1s linear infinite;
+
 }
 
 .contact .php-email-form input,
