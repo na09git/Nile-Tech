@@ -585,6 +585,42 @@ h6 {
   }
 }
 
+
+
+/*--------------------------------------------------------------
+# #hero-other
+--------------------------------------------------------------*/
+#hero-other {
+  width: 100%;
+  height: 21vh;
+  overflow: hidden;
+  position: relative;
+  background: url("../img/hero-bg.jpg") top center;
+  background-size: cover;
+  position: relative;
+  margin-bottom: -90px;
+  z-index: 99;
+  transition: 0.3s;
+}
+
+#hero-other:before {
+  content: "";
+  background: rgba(6, 101, 183, 0.9);
+  position: absolute;
+  bottom: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
+/*--------------------------------------------------------------
+# #hero-other
+--------------------------------------------------------------*/
+
+
+
+
+
 /*--------------------------------------------------------------
 # Sections General
 --------------------------------------------------------------*/
@@ -1629,8 +1665,6 @@ section {
 .contact .php-email-form .error-message {
   display: none;
   color: #fff;
-  background: #ed3c0d;
-  text-align: left;
   padding: 15px;
   font-weight: 600;
 }
@@ -1658,7 +1692,13 @@ section {
 .contact .php-email-form .loading:before {
   content: "";
   display: inline-block;
-
+  border-radius: 50%;
+  width: 24px;
+  height: 24px;
+  margin: 0 10px -6px 0;
+  border: 3px solid #18d26e;
+  border-top-color: #eee;
+  animation: animate-loading 1s linear infinite;
 }
 
 .contact .php-email-form input,
@@ -1668,7 +1708,8 @@ section {
   font-size: 14px;
 }
 
-.contact .php-email-form input {
+.contact .php-email-form input[type=text],
+.contact .php-email-form input[type=email] {
   height: 44px;
 }
 
@@ -1705,8 +1746,8 @@ section {
 # Breadcrumbs
 --------------------------------------------------------------*/
 .breadcrumbs {
-  padding: 15px 0;
-  background: #ecf6fe;
+  padding: 0 15px 15px 0;
+
   margin-top: 130px;
 }
 
@@ -1732,7 +1773,7 @@ section {
 .breadcrumbs ol li+li::before {
   display: inline-block;
   padding-right: 10px;
-  color: #f8c255;
+
   content: "/";
 }
 
