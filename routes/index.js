@@ -4,10 +4,7 @@ const { ensureAuth, ensureGuest, ensureAdmin, ensureAdminOrWorker } = require('.
 
 const User = require('../models/User')
 
-const Story = require('../models/Story')
 const News = require('../models/News')
-const Student = require('../models/Student')
-const Problem = require('../models/Problem')
 const Worker = require('../models/Worker')
 
 
@@ -78,7 +75,7 @@ router.get('/homeworker', ensureAuth, ensureAdminOrWorker, async (req, res) => {
 
 // @desc    News
 // @route   GET /news
-router.get('/newspage', ensureAuth, async (req, res) => {
+router.get('/newspage', ensureAuth, ensureAdmin, async (req, res) => {
   try {
     const news = await News.find({ user: req.user.id }).lean()
     res.render('newspage', {

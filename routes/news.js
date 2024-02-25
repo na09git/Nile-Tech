@@ -24,7 +24,7 @@ const upload = multer({ storage: storage });
 // @route   GET /news/create
 router.get('/create', ensureAuth, ensureAdmin, (req, res) => {
     res.render('news/create', {
-        layout: 'main',
+        layout: 'homeadmin',
     })
 })
 
@@ -101,7 +101,7 @@ router.get('/:id', async (req, res) => {
 
         res.render('news/show', {
             news,
-            layout: 'main',
+            layout: 'homeadmin',
         })
         console.log("You can now see the news details");
 
@@ -128,6 +128,7 @@ router.get('/edit/:id', ensureAuth, ensureAdmin, async (req, res) => {
         } else {
             res.render('news/edit', {
                 news,
+                layout: 'homeadmin',
             })
             console.log("You are in news edit page & can Edit this news");
         }
